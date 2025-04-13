@@ -15,16 +15,19 @@ const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
     <>
       <div
         key={movie._id}
-        className="card col-md-4 p-0"
+        className="card col-md-4 p-0 m-2"
         style={{ width: "16rem" }}
       >
         <NavLink to={`/movie/${movie._id}`} className="text-decoration-none">
           <img
             src={movie.poster}
-            className="card-img-top"
+            className="card-img-top position-relative"
             alt={movie.title}
             title={movie.title}
           />
+          {/* <span className="position-absolute top-0 end-0  badge rounded-pill text-bg-danger">
+            Our <i className="bi bi-heart-fill"></i>
+          </span> */}
         </NavLink>
         <div className="card-body">
           <h5 className="card-title">
