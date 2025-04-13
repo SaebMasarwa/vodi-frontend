@@ -1,0 +1,83 @@
+import axios from "axios";
+import { MovieType } from "../interfaces/Movie";
+import { jwtDecode } from "jwt-decode";
+import { UserToken } from "../interfaces/User";
+
+const api: string = `${import.meta.env.VITE_APP_API}/movies`;
+
+// Get all movies from the API
+export async function getAllMovies(): Promise<MovieType[]> {
+  const response = await axios.get<MovieType[]>(api);
+  return response.data;
+}
+
+// Get a movie by ID from the API
+export async function getMovieById(id: string): Promise<MovieType> {
+  const response = await axios.get<MovieType>(`${api}/${id}`);
+  return response.data;
+}
+
+// Create a new movie in the API
+export async function createMovie(movie: MovieType): Promise<MovieType> {
+  const response = await axios.post<MovieType>(api, movie);
+  return response.data;
+}
+
+// Update a movie in the API
+export async function updateMovie(
+  id: string,
+  movie: MovieType
+): Promise<MovieType> {
+  const response = await axios.put<MovieType>(`${api}/${id}`, movie);
+  return response.data;
+}
+// Delete a movie from the API
+export async function deleteMovie(id: string): Promise<void> {
+  await axios.delete(`${api}/${id}`);
+}
+
+// Like a movie in the API
+export async function likeMovie(id: string): Promise<void> {
+  try {
+    const token = localStorage.getItem("token");
+    await axios.patch(`${api}/${id}`, null, {
+      headers: { Authorization: token },
+    });
+  } catch (error) {
+    console.error("Error liking the movie:", error);
+  }
+}
+
+// Get like status of a movie
+export async function movieLikeStatus(movieId: string) {
+  try {
+    const token = localStorage.getItem("token");
+    const decoded = jwtDecode<UserToken>(token as string);
+    const userId = decoded._id;
+    const res = await axios.get(`${api}/${movieId}`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    const isLiked = await res.data.likes.includes(userId);
+    return isLiked;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Get the count of likes for a movie
+export async function getMovieLikesCount(movieId: string) {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axios.get(`${api}/${movieId}`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return res.data.likes.length;
+  } catch (error) {
+    console.log(error);
+  }
+}
