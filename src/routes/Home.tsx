@@ -6,9 +6,9 @@ import { Dispatch } from "redux";
 import { MoviesAction, setAllMoviesAction } from "../redux/MoviesState";
 import { getAllMovies, likeMovie } from "../services/moviesService";
 import { reactToastifyError } from "../misc/reactToastify";
-import Movie from "../components/MovieDisplay";
+// import Movie from "../components/MovieDisplay";
 import { MovieType } from "../interfaces/Movie";
-import LikeButton from "../components/LikeButton";
+// import LikeButton from "../components/LikeButton";
 import MediaCard from "../components/MediaCard";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -19,20 +19,20 @@ const Home: FunctionComponent<HomeProps> = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const movies = useSelector((state: any) => state.moviesState.movies);
   const dispatch = useDispatch<Dispatch<MoviesAction>>();
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   // const [likesCountDisplay, setLikesCountDisplay] = useState(false);
 
-  const [showLike, setShowLike] = useState(false);
-  const handleLike = (movieId: string) => {
-    likeMovie(movieId);
-    // setLikesCountDisplay(!likesCountDisplay);
-  };
+  // const [showLike, setShowLike] = useState(false);
+  // const handleLike = (movieId: string) => {
+  //   likeMovie(movieId);
+  //   // setLikesCountDisplay(!likesCountDisplay);
+  // };
 
   useEffect(() => {
     getAllMovies()
       .then((res) => {
         dispatch(setAllMoviesAction(res as MovieType[]));
-        setIsLoading(true);
+        // setIsLoading(true);
       })
       .catch((err) => {
         console.log(err);

@@ -1,8 +1,8 @@
-import { Movie } from "../interfaces/Movie";
+import { MovieType } from "../interfaces/Movie";
 
 // Movies state
 export class MoviesState {
-  public movies: Movie[] = [];
+  public movies: MovieType[] = [];
 }
 
 // Action type
@@ -24,11 +24,11 @@ export interface MoviesAction {
 
 // actions creators
 // components will use those functions in order to create an action and change the state
-export function addMovieAction(movie: Movie): MoviesAction {
+export function addMovieAction(movie: MovieType): MoviesAction {
   return { type: MoviesActionType.AddMovie, payload: movie };
 }
 
-export function updateMovieAction(movie: Movie): MoviesAction {
+export function updateMovieAction(movie: MovieType): MoviesAction {
   return { type: MoviesActionType.UpdateMovie, payload: movie };
 }
 
@@ -36,13 +36,13 @@ export function deleteMovieAction(id: number): MoviesAction {
   return { type: MoviesActionType.DeleteMovie, payload: id };
 }
 
-export function setAllMoviesAction(movies: Movie[]): MoviesAction {
+export function setAllMoviesAction(movies: MovieType[]): MoviesAction {
   return { type: MoviesActionType.SetAllMovies, payload: movies };
 }
-export function setMyFavMoviesAction(movies: Movie[]): MoviesAction {
+export function setMyFavMoviesAction(movies: MovieType[]): MoviesAction {
   return { type: MoviesActionType.SetMyFavMovies, payload: movies };
 }
-export function setMyMoviesAction(movies: Movie[]): MoviesAction {
+export function setMyMoviesAction(movies: MovieType[]): MoviesAction {
   return { type: MoviesActionType.SetMyMovies, payload: movies };
 }
 
@@ -62,14 +62,14 @@ export function moviesReducer(
       break;
     case MoviesActionType.UpdateMovie: {
       const indexToUpdate = newState.movies.findIndex(
-        (movie: Movie) => movie._id === action.payload._id
+        (movie: MovieType) => movie._id === action.payload._id
       );
       newState.movies[indexToUpdate] = action.payload;
       break;
     }
     case MoviesActionType.DeleteMovie: {
       const indexToDelete = newState.movies.findIndex(
-        (movie: Movie) => movie._id === action.payload
+        (movie: MovieType) => movie._id === action.payload
       );
       newState.movies.splice(indexToDelete, 1);
       break;
