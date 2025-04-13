@@ -1,9 +1,10 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
 import { MovieType } from "../interfaces/Movie";
 import { getMovieById } from "../services/moviesService";
 import { reactToastifyError } from "../misc/reactToastify";
 import LikeButton from "../components/LikeButton";
+import { UserContext } from "../context/userContext";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface MovieDisplayProps {
@@ -12,6 +13,7 @@ interface MovieDisplayProps {
 
 const MovieDisplay: FunctionComponent<MovieDisplayProps> = () => {
   const navigate: NavigateFunction = useNavigate();
+  const { user } = useContext(UserContext);
   const { id } = useParams<{ id: string }>();
   const [movieDisplay, setMovieDisplay] = useState<MovieType | null>(null);
 
@@ -58,7 +60,9 @@ const MovieDisplay: FunctionComponent<MovieDisplayProps> = () => {
             {movieDisplay.releaseDate.toString().split("-")[0]}
           </h5>
           <p className="card-text mt-3">
-            {movieDisplay._id && <LikeButton movieId={movieDisplay._id} />}{" "}
+            {movieDisplay._id && user && (
+              <LikeButton movieId={movieDisplay._id} />
+            )}{" "}
             <span className="badge text-bg-warning">
               {movieDisplay.rating}
               /10

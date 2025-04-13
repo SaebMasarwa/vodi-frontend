@@ -1,7 +1,8 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { MovieType } from "../interfaces/Movie";
 import LikeButton from "./LikeButton";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../context/userContext";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface MediaCardProps {
@@ -9,7 +10,7 @@ interface MediaCardProps {
 }
 
 const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
-  const user = localStorage.getItem("userId");
+  const { user } = useContext(UserContext);
   return (
     <>
       <div
