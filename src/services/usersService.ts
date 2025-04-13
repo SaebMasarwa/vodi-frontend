@@ -66,26 +66,6 @@ export async function deleteUser(userId: string) {
   }
 }
 
-// // Update biusiness status
-// export async function updateUserBusinessStatus(userId: string) {
-//   try {
-//     const token = localStorage.getItem("token");
-//     const user = await axios.patch(
-//       `${api}/${userId}`,
-//       {},
-//       {
-//         headers: {
-//           Authorization: token,
-//         },
-//       }
-//     );
-//     return user;
-//   } catch (error) {
-//     console.log(error);
-//     return null;
-//   }
-// }
-
 // Update user
 export async function updateUser(userId: string, user: UserEditType) {
   try {
@@ -100,6 +80,5 @@ export async function updateUser(userId: string, user: UserEditType) {
     return updatedUser;
   } catch (error) {
     console.log(error);
-    // return null;
   }
 }

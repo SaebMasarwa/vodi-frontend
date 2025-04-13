@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { MovieType } from "../interfaces/Movie";
 import LikeButton from "./LikeButton";
+import { NavLink } from "react-router-dom";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface MediaCardProps {
@@ -15,13 +16,14 @@ const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
         className="card col-md-4 p-0"
         style={{ width: "16rem" }}
       >
-        {/* <Movie movie={movie} /> */}
-        <img
-          src={movie.poster}
-          className="card-img-top"
-          alt={movie.title}
-          title={movie.title}
-        />
+        <NavLink to={`/movie/${movie._id}`} className="text-decoration-none">
+          <img
+            src={movie.poster}
+            className="card-img-top"
+            alt={movie.title}
+            title={movie.title}
+          />
+        </NavLink>
         <div className="card-body">
           <h5 className="card-title">
             {movie.title} - {movie.releaseDate.toString().split("-")[0]}

@@ -9,9 +9,9 @@ const About: FunctionComponent<AboutProps> = () => {
       <div className="text-center w-50 mx-auto">
         <div className="display-3 ">About</div>
         <p>
-          This is a React app that allows users to watch movies and tv shows in
-          arabic that are on YouTube. It contacts my own backend API for
-          managing the data related to these movies and tv shows.
+          This is a React (Vite) app that allows users to watch movies and tv
+          shows in arabic that are on YouTube. It contacts my own backend API
+          for managing the data related to these movies and tv shows.
         </p>
         <p>
           Handling user authentication and authorization is a key feature of

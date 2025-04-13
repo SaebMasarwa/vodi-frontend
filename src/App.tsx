@@ -13,6 +13,7 @@ import Register from "./routes/Register";
 import PageNotFound from "./components/PageNotFound";
 import About from "./routes/About";
 import Profile from "./routes/Profile";
+import MovieDisplay from "./routes/MovieDisplay";
 
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(
@@ -70,6 +71,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/about" element={<About />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/movie/:id" element={<MovieDisplay />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Router>
