@@ -9,6 +9,7 @@ interface MediaCardProps {
 }
 
 const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
+  const user = localStorage.getItem("userId");
   return (
     <>
       <div
@@ -30,7 +31,7 @@ const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
           </h5>
           <div className="card-title">{movie.genre}</div>
           <p className="card-text">
-            {movie._id && <LikeButton movieId={movie._id} />}{" "}
+            {movie._id && user && <LikeButton movieId={movie._id} />}{" "}
             <span className="badge text-bg-warning">
               {movie.rating}
               /10
