@@ -22,7 +22,7 @@ export default function Footer() {
         </figure>
         {user !== null && (
           <>
-            <figure className="figure ms-3">
+            {/* <figure className="figure ms-3">
               <i className="bi bi-heart-fill"></i>
               <figcaption className="figure-caption">
                 <NavLink
@@ -33,7 +33,7 @@ export default function Footer() {
                   Favorites
                 </NavLink>
               </figcaption>
-            </figure>
+            </figure> */}
           </>
         )}
       </div>
