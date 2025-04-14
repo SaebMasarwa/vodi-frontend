@@ -81,3 +81,12 @@ export async function getMovieLikesCount(movieId: string) {
     console.log(error);
   }
 }
+
+export async function getMoviesByGenre(genre: string) {
+  try {
+    const response = await axios.get<MovieType[]>(`${api}/genre/${genre}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching movies by category:", error);
+  }
+}

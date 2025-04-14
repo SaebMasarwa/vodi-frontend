@@ -7,9 +7,7 @@ import LikeButton from "../components/LikeButton";
 import { UserContext } from "../context/userContext";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface MovieDisplayProps {
-  // movie: MovieType;
-}
+interface MovieDisplayProps {}
 
 const MovieDisplay: FunctionComponent<MovieDisplayProps> = () => {
   const navigate: NavigateFunction = useNavigate();

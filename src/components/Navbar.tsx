@@ -46,7 +46,16 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                       About
                     </NavLink>
                   </li>
-                  {user !== null && (
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      aria-current="page"
+                      to="/movies"
+                    >
+                      Movies
+                    </NavLink>
+                  </li>
+                  {/* {user !== null && (
                     <li className="nav-item">
                       <NavLink
                         className="nav-link"
@@ -56,7 +65,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                         Fav Movies
                       </NavLink>
                     </li>
-                  )}
+                  )} */}
 
                   {/* {user?.isAdmin && (
                     <>

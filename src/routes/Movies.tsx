@@ -6,6 +6,7 @@ import { MoviesAction, setAllMoviesAction } from "../redux/MoviesState";
 import { reactToastifyError } from "../misc/reactToastify";
 import { MovieType } from "../interfaces/Movie";
 import MediaCard from "../components/MediaCard";
+import MoviesNavbar from "../components/MoviesNavbar";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface MoviesProps {}
@@ -27,8 +28,9 @@ const Movies: FunctionComponent<MoviesProps> = () => {
   }, []);
   return (
     <>
-      <div className="container-md w-50">
+      <div className="container-md">
         <h5 className="display-5 my-2">Movies</h5>
+        <MoviesNavbar />
         <div className="row mt-3">
           {movies.length ? (
             movies.map((movie: MovieType) => (

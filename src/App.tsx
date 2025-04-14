@@ -16,6 +16,7 @@ import Profile from "./routes/Profile";
 import MovieDisplay from "./routes/MovieDisplay";
 import Movies from "./routes/Movies";
 import Footer from "./components/Footer";
+import MovieCategory from "./routes/MovieCategory";
 
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(
@@ -75,6 +76,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/movie/:id" element={<MovieDisplay />} />
               <Route path="/movies" element={<Movies />} />
+              <Route path="movie/genre/:genre" element={<MovieCategory />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
             <Footer />
