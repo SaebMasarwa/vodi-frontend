@@ -21,8 +21,8 @@ export const validationSchemaObj = yup.object({
     .string()
     .required("Please enter your password")
     .matches(
-      /^(?=.*[A-Z])(?=.*[a-z])(?=.*[*_0&^%$#@!])(?=.*.{4,}).{8,}$/,
-      "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character and must be at least 8 characters long"
+      /^(?=.*[A-Z])(?=.*[a-z])(?=(?:.*\d){4,})(?=.*[*_\-&^%$#@!]).{8,}$/,
+      "Password must contain at least 1 uppercase letter, 1 lowercase letter, 4 numbers, 1 special character of theses charcters (*_-&^%$#@!) and must be at least 8 characters long"
     )
     .min(8),
 });

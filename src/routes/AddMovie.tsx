@@ -33,27 +33,36 @@ const AddMovie: FunctionComponent<AddMovieProps> = () => {
           <div className="container w-75 mt-3">
             <Form className="d-flex flex-row flex-wrap justify-content-center">
               <InputField label="Title" name="title" />
-              <InputField label="plot" name="plot" />
-              <InputField label="poster" name="poster" />
-              <InputField label="releaseDate" name="releaseDate" />
-              <InputField label="genre" name="genre" />
-              <InputField label="youtubeId" name="youtubeId" />
-              <InputField label="rating" name="rating" />
-              <button
-                className="btn btn-primary mt-3 col-5 me-2"
-                type="submit"
-                disabled={!dirty || !isValid}
-              >
-                Submit
-              </button>
-              <button
-                className="btn btn-warning mt-3 col-5 me-2"
-                type="reset"
-                disabled={!dirty || !isValid}
-                onClick={handleReset}
-              >
-                Reset
-              </button>
+
+              <InputField label="Plot" name="plot" />
+              <InputField label="Poster (Link to image)" name="poster" />
+              <InputField
+                label="Release Date (format YYYY-MM-DD)"
+                name="releaseDate"
+              />
+              <InputField label="Genre" name="genre" />
+              <InputField
+                label="YouTube ID (e.g EGywQ3q0bdI after v=)"
+                name="youtubeId"
+              />
+              <InputField label="Rating (e.g 7.8)" name="rating" />
+              <div className="d-flex flex-row justify-content-center w-100">
+                <button
+                  className="btn btn-primary mt-3 col-5 me-2"
+                  type="submit"
+                  disabled={!dirty || !isValid}
+                >
+                  Submit
+                </button>
+                <button
+                  className="btn btn-warning mt-3 col-5 me-2"
+                  type="reset"
+                  disabled={!dirty || !isValid}
+                  onClick={handleReset}
+                >
+                  Reset
+                </button>
+              </div>
             </Form>
           </div>
         )}
