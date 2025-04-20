@@ -13,11 +13,7 @@ const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
   const { user } = useContext(UserContext);
   return (
     <>
-      <div
-        key={movie._id}
-        className="card col-md-4 p-0 m-2"
-        style={{ width: "14rem" }}
-      >
+      <div key={movie._id} className="card p-0 m-2" style={{ width: "14rem" }}>
         <NavLink to={`/movie/${movie._id}`} className="text-decoration-none">
           <img
             src={movie.poster}

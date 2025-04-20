@@ -43,10 +43,11 @@ const MovieDisplay: FunctionComponent<MovieDisplayProps> = () => {
   return (
     <>
       {movieDisplay != null && (
-        <>
+        <div className="text-center mb-3 mx-auto mt-5">
           <iframe
-            width="900"
-            height="500"
+            width="100%"
+            className="rounded-3 shadow-lg"
+            style={{ aspectRatio: "16/9" }}
             src={`https://www.youtube.com/embed/${movieDisplay.youtubeId}`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -69,7 +70,7 @@ const MovieDisplay: FunctionComponent<MovieDisplayProps> = () => {
               {movieDisplay.plot}
             </p>
           </p>
-        </>
+        </div>
       )}
     </>
   );

@@ -90,11 +90,33 @@ export async function getMovieLikesCount(movieId: string) {
   }
 }
 
+// Get movies by genre from the API
 export async function getMoviesByGenre(genre: string) {
   try {
     const response = await axios.get<MovieType[]>(`${api}/genre/${genre}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching movies by category:", error);
+  }
+}
+
+// Get my favorite cards
+export async function getFavCards() {
+  const token = localStorage.getItem("token");
+  const decoded = jwtDecode<UserToken>(token as string);
+  const userId = decoded._id;
+  try {
+    const resAllMovies = await getAllMovies();
+    console.log(resAllMovies);
+
+    const allMovies = resAllMovies;
+    const favCards = allMovies.filter(
+      (movie) => movie.likes && movie.likes.includes(userId)
+    );
+    console.log(favCards);
+
+    return favCards;
+  } catch (error) {
+    console.log(error);
   }
 }

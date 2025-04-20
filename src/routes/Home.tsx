@@ -28,9 +28,9 @@ const Home: FunctionComponent<HomeProps> = () => {
   }, []);
 
   return (
-    <div className="container-md">
+    <div className="container-md mx-auto">
       <h5 className="display-5 my-2">Latest Movies Added</h5>
-      <div className="row mt-3">
+      <div className="row mt-3 justify-content-center">
         {movies.length ? (
           movies
             .slice(0, 5)
