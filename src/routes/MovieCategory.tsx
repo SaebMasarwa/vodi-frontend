@@ -5,6 +5,7 @@ import { getMoviesByGenre } from "../services/moviesService";
 import { reactToastifyError } from "../misc/reactToastify";
 import MediaCard from "../components/MediaCard";
 import { MovieType } from "../interfaces/Movie";
+import MoviesNavbar from "../components/MoviesNavbar";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface MovieCategoryProps {}
@@ -44,6 +45,7 @@ const MovieCategory: FunctionComponent<MovieCategoryProps> = () => {
     <>
       <div className="container-md">
         <h5 className="display-5 my-2">Movies in {genre}</h5>
+        <MoviesNavbar />
         <div className="row mt-3">
           {movieCategory && movieCategory.length ? (
             movieCategory.map((movie: MovieType) => (
@@ -51,7 +53,7 @@ const MovieCategory: FunctionComponent<MovieCategoryProps> = () => {
             ))
           ) : (
             <div className="col-12 text-center">
-              <h5 className="display-4 my-2">No Movies Found</h5>
+              <h5 className="display-4 my-2">No movies found in {genre}</h5>
             </div>
           )}
         </div>

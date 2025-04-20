@@ -6,7 +6,7 @@ export type MovieType = {
   releaseDate: string;
   genre: string;
   youtubeId: string;
-  likes: string[];
+  // likes?: string[];
   rating: number;
-  createdAt: string;
+  // createdAt?: string;
 };

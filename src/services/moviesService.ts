@@ -18,9 +18,17 @@ export async function getMovieById(id: string): Promise<MovieType> {
 }
 
 // Create a new movie in the API
-export async function createMovie(movie: MovieType): Promise<MovieType> {
-  const response = await axios.post<MovieType>(api, movie);
-  return response.data;
+export async function createMovie(movie: MovieType) {
+  try {
+    const token = localStorage.getItem("token");
+    const response = await axios.post(api, movie, {
+      headers: { Authorization: token },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error creating movie:", error);
+    // return undefined;
+  }
 }
 
 // Update a movie in the API
