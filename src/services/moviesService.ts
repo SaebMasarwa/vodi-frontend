@@ -101,7 +101,7 @@ export async function getMoviesByGenre(genre: string) {
 }
 
 // Get my favorite cards
-export async function getFavCards() {
+export async function getFavMovies() {
   const token = localStorage.getItem("token");
   const decoded = jwtDecode<UserToken>(token as string);
   const userId = decoded._id;
@@ -110,12 +110,29 @@ export async function getFavCards() {
     console.log(resAllMovies);
 
     const allMovies = resAllMovies;
-    const favCards = allMovies.filter(
+    const favMovies = allMovies.filter(
       (movie) => movie.likes && movie.likes.includes(userId)
     );
-    console.log(favCards);
+    console.log(favMovies);
 
-    return favCards;
+    return favMovies;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Search movies
+export async function searchMovies(query: string) {
+  try {
+    const movies = await getAllMovies();
+    const newMovies = movies.filter(
+      (movie: MovieType) =>
+        movie.title.includes(query) ||
+        movie.rating.toString().includes(query) ||
+        movie.releaseDate.includes(query) ||
+        movie.genre.includes(query)
+    );
+    return newMovies;
   } catch (error) {
     console.log(error);
   }
