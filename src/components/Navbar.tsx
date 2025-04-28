@@ -46,6 +46,19 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                       About
                     </NavLink>
                   </li>
+
+                  {user && (
+                    <li className="nav-item">
+                      <NavLink
+                        className="nav-link"
+                        aria-current="page"
+                        to="/favmovies"
+                      >
+                        Favorite Movies
+                      </NavLink>
+                    </li>
+                  )}
+
                   <li className="nav-item dropdown">
                     <NavLink
                       className="nav-link dropdown-toggle"
@@ -120,6 +133,19 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                       </li>
                     </ul>
                   </li>
+                  {user?.isAdmin && (
+                    <>
+                      <li className="nav-item">
+                        <NavLink
+                          className="nav-link"
+                          aria-current="page"
+                          to="/dashboard"
+                        >
+                          Dashboard
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
               <div className="d-flex mb-2 mb-lg-0 flex-sm-column flex-lg-row">

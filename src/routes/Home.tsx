@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { FunctionComponent, SetStateAction, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
 import { MoviesAction, setAllMoviesAction } from "../redux/MoviesState";

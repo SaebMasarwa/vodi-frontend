@@ -11,25 +11,24 @@ interface FavMoviesProps {}
 
 const FavMovies: FunctionComponent<FavMoviesProps> = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const myFavMovies = useSelector((state: any) => state.movieState.movies);
+  const myFavMovies = useSelector((state: any) => state.moviesState.movies);
   const dispatch = useDispatch<Dispatch<MoviesAction>>();
 
   useEffect(() => {
     getFavMovies()
       .then((res) => {
-        console.log(res);
-        dispatch(setMyFavMoviesAction(res || []));
+        dispatch(setMyFavMoviesAction(res as MovieType[]));
       })
       .catch((err) => {
         console.log(err);
         reactToastifyError("Failed to fetch favorite movies");
       });
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <div className="display-3">My Favorite Movies</div>
       <div className="row mt-3 justify-content-center">
-        {myFavMovies && myFavMovies.length ? (
+        {myFavMovies ? (
           myFavMovies.map((movie: MovieType) => (
             <div
               key={movie._id}

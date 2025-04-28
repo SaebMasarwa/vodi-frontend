@@ -107,13 +107,11 @@ export async function getFavMovies() {
   const userId = decoded._id;
   try {
     const resAllMovies = await getAllMovies();
-    console.log(resAllMovies);
-
-    const allMovies = resAllMovies;
-    const favMovies = allMovies.filter(
+    // const allMovies = resAllMovies;
+    const favMovies = resAllMovies.filter(
       (movie) => movie.likes && movie.likes.includes(userId)
     );
-    console.log(favMovies);
+    console.log("Fav movies by logged in user" + favMovies);
 
     return favMovies;
   } catch (error) {

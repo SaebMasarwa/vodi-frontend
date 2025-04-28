@@ -38,7 +38,7 @@ export async function getCurrentUserById() {
 export async function getAllUsers() {
   try {
     const token = localStorage.getItem("token");
-    const users = await axios.get(`${api}`, {
+    const users = await axios.get(api, {
       headers: {
         Authorization: token,
       },
