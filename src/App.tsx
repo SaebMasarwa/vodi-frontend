@@ -20,6 +20,7 @@ import MovieCategory from "./routes/MovieCategory";
 import AddMovie from "./routes/AddMovie";
 import FavMovies from "./routes/FavMovies";
 import Dashboard from "./routes/Dashboard";
+import Stats from "./routes/Stats";
 
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(
@@ -83,6 +84,7 @@ function App() {
               <Route path="/addmovie" element={<AddMovie />} />
               <Route path="/favmovies" element={<FavMovies />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/stats" element={<Stats />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
             <Footer />

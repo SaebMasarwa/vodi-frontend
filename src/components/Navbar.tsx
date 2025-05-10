@@ -144,6 +144,15 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                           Dashboard
                         </NavLink>
                       </li>
+                      <li className="nav-item">
+                        <NavLink
+                          className="nav-link"
+                          aria-current="page"
+                          to="/stats"
+                        >
+                          Stats
+                        </NavLink>
+                      </li>
                     </>
                   )}
                 </ul>

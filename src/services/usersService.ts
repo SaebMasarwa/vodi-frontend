@@ -82,3 +82,22 @@ export async function updateUser(userId: string, user: UserEditType) {
     console.log(error);
   }
 }
+
+// Update user admin role
+export async function updateUserAdminRole(userId: string) {
+  try {
+    const token = localStorage.getItem("token");
+    const updatedUser = await axios.patch(
+      `${api}/${userId}`,
+      {},
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    return updatedUser;
+  } catch (error) {
+    console.log(error);
+  }
+}
