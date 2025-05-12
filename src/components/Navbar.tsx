@@ -78,7 +78,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                       <li>
                         <NavLink
                           className="dropdown-item "
-                          to={"/movie/genre/كوميدي"}
+                          to={"/movie/genre/Comedy"}
                         >
                           كوميدي
                         </NavLink>
