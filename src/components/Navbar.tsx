@@ -80,55 +80,55 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                           className="dropdown-item "
                           to={"/movie/genre/Comedy"}
                         >
-                          كوميدي
+                          Comedy
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
                           className="dropdown-item "
-                          to={"/movie/genre/دراما"}
+                          to={"/movie/genre/Drama"}
                         >
-                          دراما
+                          Drama
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
                           className="dropdown-item "
-                          to={"/movie/genre/حركة"}
+                          to={"/movie/genre/Action"}
                         >
-                          حركة
+                          Action
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
                           className="dropdown-item "
-                          to={"/movie/genre/رعب"}
+                          to={"/movie/genre/Horror"}
                         >
-                          رعب
+                          Horror
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
                           className="dropdown-item "
-                          to={"/movie/genre/عائلي"}
+                          to={"/movie/genre/Family"}
                         >
-                          عائلي
+                          Family
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
                           className="dropdown-item "
-                          to={"/movie/genre/اطفال"}
+                          to={"/movie/genre/Kids"}
                         >
-                          اطفال
+                          Kids
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
                           className="dropdown-item "
-                          to={"/movie/genre/مسرحيات"}
+                          to={"/movie/genre/Plays"}
                         >
-                          مسرحيات
+                          Plays
                         </NavLink>
                       </li>
                     </ul>
