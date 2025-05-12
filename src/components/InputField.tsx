@@ -15,7 +15,7 @@ const InputField: FunctionComponent<InputFieldProps> = ({
 }) => {
   const [field, meta] = useField({ ...props, name: name });
   return (
-    <div className="form-floating mb-3 col-5 me-2">
+    <div className="form-floating mb-3 col-12 me-2">
       <input className="form-control" {...field} {...props} />
       <label>{label}</label>
       {meta.touched && meta.error ? (

@@ -27,13 +27,14 @@ const Register: FunctionComponent<RegisterProps> = () => {
       >
         {({ handleReset, isValid, dirty }) => (
           <div className="container w-50">
+            <h5 className="display-5 my-2">Register</h5>
             <Form className="d-flex flex-row flex-wrap justify-content-center">
               <InputField label="Name" name="name" />
               <InputField label="Email Address" type="email" name="email" />
               <InputField label="Password" type="password" name="password" />
               <div className="d-flex flex-row justify-content-center w-100">
                 <button
-                  className="btn btn-primary mt-3 col-5 me-2"
+                  className="btn btn-primary mt-3 col-6 me-2"
                   type="submit"
                   disabled={!isValid || !dirty}
                 >
@@ -41,7 +42,7 @@ const Register: FunctionComponent<RegisterProps> = () => {
                 </button>
                 <button
                   type="reset"
-                  className="btn btn-warning mt-3 p-2 col-5"
+                  className="btn btn-warning mt-3 p-2 col-6"
                   disabled={!isValid || !dirty}
                   onClick={() => {
                     handleReset();
