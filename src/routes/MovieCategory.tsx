@@ -12,7 +12,6 @@ interface MovieCategoryProps {}
 
 const MovieCategory: FunctionComponent<MovieCategoryProps> = () => {
   const navigate: NavigateFunction = useNavigate();
-  //   const { user } = useContext(UserContext);
   const { genre } = useParams<{ genre: string }>();
   const [movieCategory, setMovieCategory] = useState<MovieType[] | null>(null);
 

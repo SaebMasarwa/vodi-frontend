@@ -22,22 +22,34 @@ export default function Footer() {
         </figure>
         {user !== null && (
           <>
-            {/* <figure className="figure ms-3">
+            <figure className="figure ms-3">
               <i className="bi bi-heart-fill"></i>
               <figcaption className="figure-caption">
                 <NavLink
                   className="text-decoration-none"
                   aria-current="page"
-                  to="/favcards"
+                  to="/favmovies"
                 >
-                  Favorites
+                  Favorite Movies
                 </NavLink>
               </figcaption>
-            </figure> */}
+            </figure>
+            <figure className="figure ms-3">
+              <i className="bi bi-film"></i>
+              <figcaption className="figure-caption">
+                <NavLink
+                  className="text-decoration-none"
+                  aria-current="page"
+                  to="/movies"
+                >
+                  All Movies
+                </NavLink>
+              </figcaption>
+            </figure>
           </>
         )}
       </div>
-      <div>v1.0.0</div>
+      <div>v1.0.1</div>
     </>
   );
 }
