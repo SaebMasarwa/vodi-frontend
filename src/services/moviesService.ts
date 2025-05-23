@@ -32,13 +32,17 @@ export async function createMovie(movie: MovieType) {
 }
 
 // Update a movie in the API
-export async function updateMovie(
-  id: string,
-  movie: MovieType
-): Promise<MovieType> {
-  const response = await axios.put<MovieType>(`${api}/${id}`, movie);
-  return response.data;
+export async function updateMovie(id: string, movie: MovieType) {
+  try {
+    const token = localStorage.getItem("token");
+    return await axios.put(`${api}/${id}`, movie, {
+      headers: { Authorization: token },
+    });
+  } catch (error) {
+    console.error("Error updating movie:", error);
+  }
 }
+
 // Delete a movie from the API
 export async function deleteMovie(id: string): Promise<void> {
   await axios.delete(`${api}/${id}`);

@@ -9,9 +9,9 @@ export const movieInitialValuesObj = {
   releaseDate: "",
   genre: "",
   youtubeId: "",
-  //   likes: [],
+  // likes: [],
   rating: 0,
-  //   userId: "",
+  userId: "",
   //   createdAt: new Date().toISOString(),
 };
 

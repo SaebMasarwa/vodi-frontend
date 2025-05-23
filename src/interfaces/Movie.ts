@@ -1,4 +1,5 @@
 export type MovieType = {
+  // [x: string]: string;
   _id?: string;
   title: string;
   plot: string;
@@ -8,5 +9,6 @@ export type MovieType = {
   youtubeId: string;
   likes?: string[];
   rating: number;
+  userId: string;
   // createdAt?: string;
 };

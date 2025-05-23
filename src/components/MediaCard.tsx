@@ -1,8 +1,14 @@
 import { FunctionComponent, useContext } from "react";
 import { MovieType } from "../interfaces/Movie";
 import LikeButton from "./LikeButton";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { UserContext } from "../context/userContext";
+import { User } from "../interfaces/User";
+import { deleteMovie } from "../services/moviesService";
+import {
+  reactToastifyError,
+  reactToastifySuccess,
+} from "../misc/reactToastify";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface MediaCardProps {
@@ -11,6 +17,18 @@ interface MediaCardProps {
 
 const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
   const { user } = useContext(UserContext);
+
+  const handleDelete = (movieId: string, user: User, movieUserId: string) => {
+    if (user?.isAdmin) {
+      deleteMovie(movieId);
+      reactToastifySuccess("Card deleted successfully");
+    } else if (user?._id === movieUserId) {
+      deleteMovie(movieId);
+      reactToastifySuccess("Card deleted successfully");
+    } else {
+      reactToastifyError("You are not authorized to delete this card");
+    }
+  };
   return (
     <>
       <div key={movie._id} className="card p-0 m-2" style={{ width: "14rem" }}>
@@ -34,6 +52,35 @@ const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
               /10
             </span>
           </p>
+        </div>
+        <div className="card-footer d-flex flex-row justify-content-center">
+          {user?.isAdmin && (
+            <Link
+              to={`/editmovie/${movie._id}`}
+              className="btn btn-outline-warning me-3"
+            >
+              <i className="bi bi-pencil"></i>
+            </Link>
+          )}
+          {user?.isAdmin && (
+            <Link
+              to=""
+              className="btn btn-outline-danger me-3"
+              onClick={() => {
+                if (
+                  window.confirm("Are you sure you want to delete this movie?")
+                ) {
+                  handleDelete(
+                    movie._id as string,
+                    user,
+                    movie.userId as string
+                  );
+                }
+              }}
+            >
+              <i className="bi bi-trash"></i>
+            </Link>
+          )}
         </div>
       </div>
     </>
