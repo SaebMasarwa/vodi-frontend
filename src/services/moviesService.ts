@@ -21,6 +21,7 @@ export async function getMovieById(id: string): Promise<MovieType> {
 export async function createMovie(movie: MovieType) {
   try {
     const token = localStorage.getItem("token");
+    console.log(movie);
     const response = await axios.post(api, movie, {
       headers: { Authorization: token },
     });
@@ -45,7 +46,14 @@ export async function updateMovie(id: string, movie: MovieType) {
 
 // Delete a movie from the API
 export async function deleteMovie(id: string): Promise<void> {
-  await axios.delete(`${api}/${id}`);
+  try {
+    const token = localStorage.getItem("token");
+    return await axios.delete(`${api}/${id}`, {
+      headers: { Authorization: token },
+    });
+  } catch (error) {
+    console.error("Error deleting movie:", error);
+  }
 }
 
 // Like a movie in the API

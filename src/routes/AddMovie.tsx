@@ -23,7 +23,7 @@ const AddMovie: FunctionComponent<AddMovieProps> = () => {
 
   return (
     <>
-      <div className="display-3">Add Moive</div>
+      <div className="display-3">Add Movie</div>
       <Formik
         initialValues={movieInitialValuesObj}
         validationSchema={movieValidationSchema}
@@ -33,7 +33,6 @@ const AddMovie: FunctionComponent<AddMovieProps> = () => {
           <div className="container w-75 mt-3">
             <Form className="d-flex flex-row flex-wrap justify-content-center">
               <InputField label="Title" name="title" />
-
               <InputField label="Plot" name="plot" />
               <InputField label="Poster (Link to image)" name="poster" />
               <InputField

@@ -9,6 +9,6 @@ export type MovieType = {
   youtubeId: string;
   likes?: string[];
   rating: number;
-  userId: string;
+  userId?: string;
   // createdAt?: string;
 };

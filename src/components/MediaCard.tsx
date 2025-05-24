@@ -18,11 +18,19 @@ interface MediaCardProps {
 const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
   const { user } = useContext(UserContext);
 
-  const handleDelete = (movieId: string, user: User, movieUserId: string) => {
-    if (user?.isAdmin) {
+  const handleDelete = (
+    movieId: string,
+    user: User | null,
+    movieUserId: string
+  ) => {
+    if (!user) {
+      reactToastifyError("You need to be logged in to delete this card");
+      return;
+    }
+    if (user.isAdmin) {
       deleteMovie(movieId);
       reactToastifySuccess("Card deleted successfully");
-    } else if (user?._id === movieUserId) {
+    } else if (user._id === movieUserId) {
       deleteMovie(movieId);
       reactToastifySuccess("Card deleted successfully");
     } else {
@@ -53,16 +61,17 @@ const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
             </span>
           </p>
         </div>
-        <div className="card-footer d-flex flex-row justify-content-center">
-          {user?.isAdmin && (
+        {(user?.isAdmin === true || user?._id === movie.userId) && (
+          <div className="card-footer d-flex flex-row justify-content-center">
+            {/* {user?._id === movie.userId && ( */}
             <Link
               to={`/editmovie/${movie._id}`}
               className="btn btn-outline-warning me-3"
             >
               <i className="bi bi-pencil"></i>
             </Link>
-          )}
-          {user?.isAdmin && (
+            {/* )} */}
+            {/* {(user?.isAdmin === true || user?._id === movie.userId) && ( */}
             <Link
               to=""
               className="btn btn-outline-danger me-3"
@@ -80,8 +89,9 @@ const MediaCard: FunctionComponent<MediaCardProps> = ({ movie }) => {
             >
               <i className="bi bi-trash"></i>
             </Link>
-          )}
-        </div>
+            {/* )} */}
+          </div>
+        )}
       </div>
     </>
   );
