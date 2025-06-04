@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+# Vodi by Saeb Masarwa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my full frontend vite react app.
+This app was made as a project during Full Stack Development Course.
 
-Currently, two official plugins are available:
+## More about the app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features
 
-## Expanding the ESLint configuration
+- **User Authentication**: Secure login and registration system.
+- **Movie Management**: Create, edit, and delete movie cards.
+- **Search Functionality**: Easily search for movies by name or category.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Technologies Used
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**: Frontend library for building user interfaces.
+- **JWT**: JSON Web Tokens for secure authentication.
+- **Node.js**: Backend runtime environment.
+- **Express**: Web framework for Node.js.
+- **MongoDB**: NoSQL database for storing card data.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### What is the Project
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+It's a movies for users with different levels of access.
+Register is your first step with either an access of User or Business.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Levels:
+
+- User: can create and edit and delete his movies and like other cards.
+- Admin: Full access to the system including the before mentioned levels and managing user including deleteing and turn a user between different levels of access.
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/SaebMasarwa/vodi-frontend.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd vodi-frontend
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Start the development server:
+   ```sh
+   npm start
+   ```
+
+### Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+### License
+
+This project is licensed under the MIT License.
