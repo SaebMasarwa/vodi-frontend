@@ -31,10 +31,10 @@ export const movieValidationSchema = yup.object({
 export const movieOnSubmit = async (values: any) => {
   console.log("values", values);
   createMovie(values)
-    .then((res) => {
+    .then(() => {
       reactToastifySuccess("Movie added successfully");
     })
-    .catch((err) => {
+    .catch(() => {
       reactToastifyError("Error adding movie");
     });
 };

@@ -19,7 +19,7 @@ const Dashboard: FunctionComponent<DashboardProps> = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [usersListChanged, setUsersListChanged] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [adminRole, setAdminRole] = useState(false);
+  // const [adminRole, setAdminRole] = useState(false);
 
   const fetchData = async () => {
     getAllUsers()
@@ -96,7 +96,7 @@ const Dashboard: FunctionComponent<DashboardProps> = () => {
                                   if (user._id) {
                                     handleAdminRole(user._id);
                                   }
-                                  setAdminRole(false);
+                                  // setAdminRole(false);
                                 }}
                               />
                               <label
@@ -117,7 +117,7 @@ const Dashboard: FunctionComponent<DashboardProps> = () => {
                                   if (user._id) {
                                     handleAdminRole(user._id);
                                   }
-                                  setAdminRole(true);
+                                  // setAdminRole(true);
                                 }}
                               />
                               <label
