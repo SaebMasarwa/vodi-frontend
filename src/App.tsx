@@ -43,13 +43,15 @@ function App() {
   };
 
   useEffect(() => {
-    getCurrentUserById()
-      .then((res) => {
-        if (res) {
-          setUser(res.data);
-        }
-      })
-      .catch((err) => console.log(err));
+    if (localStorage.getItem("token")) {
+      getCurrentUserById()
+        .then((res) => {
+          if (res) {
+            setUser(res.data);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
 
     if (localStorage.getItem("darkMode") === "true") {
       htmlElement?.setAttribute("data-bs-theme", "dark");
