@@ -74,7 +74,9 @@ const Home: FunctionComponent<HomeProps> = () => {
         <></>
       )}
       <div className="row mt-3 justify-content-center">
-        {movies.length && searchResults.length === 0 ? (
+        {Array.isArray(movies) &&
+        movies.length > 0 &&
+        searchResults.length === 0 ? (
           movies
             .slice(0, 5)
             .map((movie: MovieType) => (
